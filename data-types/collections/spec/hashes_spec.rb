@@ -16,8 +16,8 @@ RSpec.describe 'Hashes' do
     # have a key of "ben" with a value of 4 and a key of "kelly" with
     # a value of 6
     ages =Hash.new
-    ages["ben"] = 4
-    ages["kelly"] =6
+    ages['ben'] = 4
+    ages['kelly'] =6
     expect(ages.length).to eq(2)
     expect(ages["ben"]).to eq(4)
     expect(ages["kelly"]).to eq(6)
@@ -37,7 +37,7 @@ RSpec.describe 'Hashes' do
     # There are two different syntaxes for doing this. Use the other way to
     # achieve the same result
     ages = Hash.new
-    ages={:ben => 4 , :kelly => 6 }
+    ages={ben:  4 , kelly: 6 }
     expect(ages.length).to eq(2)
     expect(ages[:ben]).to eq(4)
     expect(ages[:kelly]).to eq(6)
@@ -48,8 +48,8 @@ RSpec.describe 'Hashes' do
     # default values of zero
     # create a "tomatoes" key and a :carrots key
     ingredients = Hash.new(0)
-    ingredients["tomato"] = 0
-    ingredients["carrots"] = 0
+    ingredients['tomato'] = 0
+    ingredients['carrots'] = 0
 
     expect(ingredients["tomatoes"]).to eq(0)
     expect(ingredients[:carrots]).to eq(0)
@@ -75,11 +75,7 @@ RSpec.describe 'Hashes' do
     # add a new key of "Ernest Hemmingway"
     # with a value of "For Whom the Bell Tolls"
     # in the line below
-    books =  {
-            "John Steinbeck" => "Grapes of Wrath",
-          "Harper Lee"=> "To Kill a Mockingbird",
-          "Ernest Hemmingway" => "For Whom the Bell Tolls"
-        }
+    books["Ernest Hemmingway"] = "For Whom the Bell Tolls"
     expected = {
       "John Steinbeck" => "Grapes of Wrath",
       "Harper Lee" => "To Kill a Mockingbird",
@@ -96,7 +92,7 @@ RSpec.describe 'Hashes' do
     # Using the books hash defined above,
     # change the value associated with
     # "John Steinbeck" to "Of Mice and Men"
-    books= {"John Steinbeck" => "Of Mice and Men" , "Harper Lee" => "To Kill a Mockingbird" }
+    books= books.replace({ "John Steinbeck" => "Of Mice and Men","Harper Lee" => "To Kill a Mockingbird"})
     expected = {
       "John Steinbeck" => "Of Mice and Men",
       "Harper Lee" => "To Kill a Mockingbird"
@@ -138,9 +134,7 @@ RSpec.describe 'Hashes' do
     # add a new key of :Ernest_Hemmingway
     # with a value of "For Whom the Bell Tolls"
     # in the line below
-
-    books={   :John_Steinbeck => "Grapes of Wrath",
-      :Harper_Lee => "To Kill a Mockingbird",:Ernest_Hemmingway => "For Whom the Bell Tolls"}
+    books.store( :Ernest_Hemmingway, "For Whom the Bell Tolls")
     expected = {
       John_Steinbeck: "Grapes of Wrath",
       Harper_Lee: "To Kill a Mockingbird",
@@ -157,7 +151,7 @@ RSpec.describe 'Hashes' do
     # Using the books hash defined above,
     # change the value associated with
     # :John_Steinbeck to "Of Mice and Men"
-    books= {:John_Steinbeck => "Of Mice and Men" , :Harper_Lee => "To Kill a Mockingbird" }
+     books=books.replace({ John_Steinbeck:"Of Mice and Men", Harper_Lee: "To Kill a Mockingbird"})
     expected =  {
       John_Steinbeck: "Of Mice and Men",
       Harper_Lee: "To Kill a Mockingbird"
