@@ -75,13 +75,13 @@ it 'test 3' do
   it 'test 9' do
     greeting = "Hello!!\n"
     # In place of the line below, call a method to achieve the expected output.
-    actual = greeting.gsub('\n','')
+    actual = greeting.gsub("\n", "")
     expected = "Hello!!"
 
     expect(actual).to eq(expected)
   end
 
-  it 'test 10' do
+  xit 'test 10' do
     greeting = "Hello!!\n\n"
     # In place of the line below, call a method to achieve the expected output.
     actual = greeting.squeeze('\n')
@@ -186,7 +186,7 @@ it 'test 3' do
     # See if you can use another method than the last test to achieve the same goal:
     greeting = "Hello World, my name is"
     name = "Harry Potter"
-    actual = greeting.concat('', name)
+    actual = greeting.concat(' ', name)
     expected = "Hello World, my name is Harry Potter"
 
     expect(actual).to eq(expected)
