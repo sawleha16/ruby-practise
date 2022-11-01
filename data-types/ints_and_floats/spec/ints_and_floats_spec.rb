@@ -23,7 +23,7 @@ RSpec.describe 'ints and floats' do
     # Using the two variables defined above,
     # divide unlucky by lucky
     # NOTE: this is integer division
-    quotient = (unlucky).div(lucky)
+    quotient = unlucky / lucky
     expect(quotient).to eq(1)
   end
 
@@ -32,7 +32,7 @@ RSpec.describe 'ints and floats' do
     unlucky = 13
     # Using the two variables defined above,
     # divide unlucky by lucky
-    quotient = (unlucky).fdiv(lucky)
+    quotient = unlucky.to_f/lucky.to_f
     expect(quotient).to eq(1.8571428571428572)
   end
 
@@ -73,7 +73,7 @@ RSpec.describe 'ints and floats' do
     pi = 3.14
     # Using the variable defined above,
     # round the number to the next highest whole number
-    rounded = pi.to_f.ceil()
+    rounded = pi.ceil()
     expect(rounded).to eq(4)
   end
 end
