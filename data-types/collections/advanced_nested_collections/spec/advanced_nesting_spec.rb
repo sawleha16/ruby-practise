@@ -1,3 +1,4 @@
+
 require_relative 'nesting'
 
 # The intent of this exercise is to practice working with nested collections.
@@ -77,11 +78,12 @@ RSpec.describe 'Advanced Nested Collections' do
   it 'test 8' do
     # Return a list of all ingredients
     # across all restaurants
-    ingredients =
-    
-
+    ingredients = stores.map do|store_name, store_data|
+      store_data[:dishes].map do |ing|
+        ing[:ingredients]
       end
     end
+
 
     expected = [
       "Rice",
@@ -103,22 +105,25 @@ RSpec.describe 'Advanced Nested Collections' do
       "Potatoes",
       "Salt"
     ]
-    expect(ingredients).to eq(expected)
+    expect(ingredients.flatten).to eq(expected)
   end
-it 'test 9' do
+
+  it 'test 9' do
     # Return the full menu price for Olive Garden
-    full_menu_price =
 
+  full_menu_price= 0
+  stores[:olive_garden][:dishes].each do |dish|
+    full_menu_price  += dish[:price]
+   end
 
-
-    expect(full_menu_price).to eq(27)
+     expect(full_menu_price).to eq(27)
   end
 
   it 'test 10' do
     # Return the full menu for Olive Garden
 
     olive_garden_menu = {}
-     stores[:olive_garden][:dishes].each do |dish|
+      stores[:olive_garden][:dishes].each do |dish|
         olive_garden_menu[dish[:name]] =  dish
       end
 
